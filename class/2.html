@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>123</div>
+    <script>
+        function add(num1, num2) {
+            console.log(num1 + num2)
+            console.log(num2)
+            return 123
+        }
+        //const res = add(100, 1)
+        const res = add("100", 222)
+        console.log(res);
+
+        const addRes = (num1, num2) => {
+            return parseInt(num1) + parseInt(num2)
+        }
+        console.log(addRes(20202020, 1111111));
+
+
+        const intro = (name, blood) => {
+            return `${name}的血型是${blood}`
+        }
+        console.log(intro('Irene', 'A'));
+
+
+    </script>
+</body>
+
+</html>
