@@ -8,7 +8,34 @@
 </head>
 
 <body>
+    <div id="app">
+        <p>Hello {{ name }},要去 {{ music[0]}} !</p>
+        <h4 v-html="`${age}歲`"></h4>
+        <h4 v-html="content"></h4>
+        <p>{{live ? "活著" : "死了"}}</p>
 
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        //debugger
+        //console.log(Vue)
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: 'Irene',
+                    age: 111111,
+                    content: `<div style='color:red'> hello </div>`,
+                    live: true,
+                    music: ['1', '2', '3', '4', '5'],
+                    skill: {
+                        f2e: ['vue', 'react']
+                    }
+                }
+            },
+        })
+        app.mount('#app')
+
+    </script>
 </body>
 
 </html>
