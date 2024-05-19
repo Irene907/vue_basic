@@ -10,6 +10,15 @@
     img {
         width: 5rem;
     }
+
+    .store {
+        display: flex;
+        padding: 20px;
+    }
+
+    .store p:first-child {
+        flex-grow: 1;
+    }
 </style>
 
 <body>
@@ -17,20 +26,21 @@
         <!-- 5.上架 -->
         <!-- proItem是變數 在product裡 -->
         <div v-for="proItem in products" :key="proItem.id">
-            <img :src="proItem.image" alt="">
-            {{proItem['title']}}
 
-            <p>{{proItem.description}}</p>
-            <p>
-                {{proItem?.rating?.rate}}
-                {{proItem?.rating?.count}}
-                {{parseInt(1.111111)}}
-                <span v-for="num in parseInt(proItem.rating.rate)">⭐</span>
-                <!-- <span>⭐</span>
-                <span>⭐</span> -->
-            </p>
-
-            <p>價錢:{{proItem.price}}</p>
+            <div class="store">
+                <!-- <p>{{proItem.description}}</p> -->
+                <img :src="proItem.image" alt="">
+                <p>
+                    {{proItem['title']}}
+                    {{proItem?.rating?.rate}}
+                    {{proItem?.rating?.count}}
+                    {{parseInt(1.111111)}}
+                    <span v-for="num in parseInt(proItem.rating.rate)">⭐</span>
+                    <!-- <span>⭐</span>
+                    <span>⭐</span> -->
+                </p>
+                <p>價錢:{{proItem.price}}</p>
+            </div>
         </div>
     </div>
     <script src="https://unpkg.com/vue"></script>
