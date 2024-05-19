@@ -12,7 +12,8 @@
         <button @click="add">+1</button>
         {{res}}
         <button @click="reduce">-1</button><br />
-        總價: {{ parse()}}
+        總價: {{ parse}}
+        <br />
         美金 : {{dollar}}
     </div>
 
@@ -28,8 +29,11 @@
                 }
             },
             computed: {
+                parse() {
+                    return this.price * this.res
+                },
                 dollar() {
-                    return (this.price * this.res) / 30
+                    return this.parse / 30
                 }
             },
             methods: {

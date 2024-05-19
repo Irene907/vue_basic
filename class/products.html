@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 5rem;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <!-- 5.上架 -->
+        <!-- proItem是變數 在product裡 -->
+        <div v-for="proItem in products" :key="proItem.id">
+            <img :src="proItem.image" alt="">
+            {{proItem['title']}}
+
+            <p>{{proItem.description}}</p>
+            <p>
+                {{proItem?.rating?.rate}}
+                {{proItem?.rating?.count}}
+                {{parseInt(1.111111)}}
+                <span v-for="num in parseInt(proItem.rating.rate)">⭐</span>
+                <!-- <span>⭐</span>
+                <span>⭐</span> -->
+            </p>
+
+            <p>價錢:{{proItem.price}}</p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    //類似倉庫裝商品
+                    products: []
+
+                }
+            }, methods: {
+                test2() {
+                    console.log(2)
+                }
+            },
+            mounted() {
+                //畫面渲染完成後開始執行作用域中的程式
+                //1.叫貨車
+                fetch('https://fakestoreapi.com/products')
+                    .then(res => {
+                        //2.貨車到了
+                        return res.json()
+                    })
+                    .then(json => {
+                        //3.貨車卸貨
+                        console.log(json)
+                        //4.放到倉庫裡
+                        this.products = json
+                    })
+            },
+        }).mount("#app")
+    </script>
+</body>
+
+</html>
