@@ -13,6 +13,7 @@
         {{res}}
         <button @click="reduce">-1</button><br />
         總價: {{ parse()}}
+        美金 : {{dollar}}
     </div>
 
     <script src="https://unpkg.com/vue"></script>
@@ -24,6 +25,11 @@
                     res: 0,
                     count: 10,
                     price: 100
+                }
+            },
+            computed: {
+                dollar() {
+                    return (this.price * this.res) / 30
                 }
             },
             methods: {
