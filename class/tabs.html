@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p {
+        font-size: 2rem;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <button @click="current = 'A'">A</button>
+        <button @click="current = 'B'">B</button>
+        <button @click="current = 'C'">C</button>
+        <br>
+        <!-- <p>{{current}}</p> -->
+        {{current}}
+
+        <!-- 直接換div -->
+        <div v-if="current === 'A'">A</div>
+        <div v-else-if="current === 'B'">B</div>
+        <div v-else>C</div>
+
+        <!-- none變display 有動畫 -->
+        <div v-show="current === 'A'">A</div>
+        <div v-show="current === 'B'">B</div>
+        <div v-show="current === 'C'">C</div>
+
+
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    current: 'A'
+                }
+            },
+        }).mount("#app")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="section section-mbti">
+        <div class="container">
+            <span>知識挑戰</span>
+            <div class="content" v-if="currentView === 1">
+                <h3>海廢小知識</h3>
+                <h1>題目與答案</h1>
+                <button @click="currentView = 2">進入遊戲</button>
+            </div>
+            <div class="content" v-else-if="currentView === 2">
+                <h1>海洋知識挑戰</h1>
+                <p>準備好面對挑戰了嗎？</p>
+                <button @click="currentView = 3">開始挑戰</button>
+            </div>
+            <div class="content" v-else-if="currentView === 3">
+                <!-- 在這裡添加你的問答內容 -->
+                <button @click="currentView = 1">返回首頁</button>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        export default {
+            data() {
+                return {
+                    currentView: 1
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

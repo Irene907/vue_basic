@@ -39,7 +39,6 @@
 </style>
 
 <body>
-    <section></section>
     <div id="app">
         <h2>購物車</h2>
         <div class="line" v-for="(item, index) in cartList">
@@ -95,7 +94,6 @@
                 computed: {
                     total() {
                         return this.cartList.reduce((total, item) => total + item.price * item.amount, 0);
-
                     }
                 },
                 methods: {

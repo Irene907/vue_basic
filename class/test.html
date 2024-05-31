@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="(item, index) in people">
+            <p>
+                name:{{ item.name }}<br>
+                age:{{ item.age }}<br>
+                live:{{ item.live }}<br>
+                price:{{ item.price }}<br>
+                <button @click=" add(index)">增加</button><br>
+                數量: {{ item.amount }}<br>
+                <button @click="reduce(index)">減少</button><br>
+                小計: {{ total(index) }}<br />
+                <img :src="item.img" alt="" style="width: 100px; height: 100px;">
+            </p>
+
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        people: [
+                            { name: 'Alice', age: 10, live: true, price: 10, amount: 0, img: "../images/album-dog.jpg" },
+                            { name: 'gggggg', age: 10, live: false, price: 2, amount: 0 },
+                            { name: 'Alice', age: 10, live: true, price: 5, amount: 0 }
+                        ]
+                    }
+                },
+                computed: {
+
+                    total() {
+                        return (index) => {
+                            const item = this.people[index];
+                            return item.price * item.amount;
+                        }
+                    }
+                },
+                methods: {
+                    add(index) {
+                        this.people[index].amount += 1;
+                    },
+                    reduce(index) {
+                        if (this.people[index].amount > 0) {
+                            this.people[index].amount -= 1;
+                        }
+                    },
+                },
+            }).mount('#app')
+        </script>
+</body>
+
+</html>
